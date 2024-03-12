@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+/* Creating a box shadow in the root bcoz we gonna use them at some places  */
+
+/* It produces a card like effects  */
+
+:root{
+    --box-shadow: 0 10px 5px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #b0aaaa;
+    color: black;
+    font-family: 'Roboto',sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding-bottom: 100px;
+    font-weight: 400;
+}
+
+h1{
+    font-weight: bold;
+    margin-bottom: 0;
+    text-align: center;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+}
+
+.filter-container{
+    margin-top: 20px;
+    width: 80vw;
+    max-width: 800px;
+}
+
+.filter{
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    background-color: #e5e2e2;
+    font-size: 16px;
+    border: none;
+}
+.filter:focus{
+    outline: 0;
+    border: none;
+}
+.filter::placeholder{
+    color: rgb(30, 28, 28);
+    font-weight: normal;
+}
+.post{
+    position: relative;
+    background-color:white;
+    color: #000;
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 40px 0;
+    display: flex;
+    width: 80vw;
+    max-width: 800px;
+}
+
+.post .post-title{
+    margin: 0;
+}
+
+/* Transforming the first letter to uppercase in both heading and the paragraph */
+
+.post-title::first-letter{
+    text-transform: uppercase;
+}
+.post-body::first-letter{
+    text-transform: uppercase;
+}
+
+.post .post-body{
+    margin: 15px 0 0 8px;
+    line-height: 1.5;
+    text-indent: 5px;
+}
+.post .post-info{
+    margin-left: 20px;
+}
+
+.post .number{
+    position: absolute;
+    left: -15px;
+    top: -15px;
+    font-size: 15px;
+    width: 25px;
+    height: 25px;
+    background-color: #aa9f9f;
+    color: rgb(32, 31, 31);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 10px;
+}
+
+.loader{
+    /* We will manipulate this in the javascript */
+    opacity: 0;
+    display: flex;
+    position: fixed;
+    bottom: 50px;
+    transition: opacity 0.3s ease-in;
+}
+.loader.show{
+    /* We will add that in the javascript */
+    opacity:1
+}
+
+.circle{
+    background-color: #fff;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 5px;
+    animation: bounce 0.5s ease-in infinite;
+}
+
+
+/* If we set the key frames on circle all of them behave same but we want different circles to behvae differently creating a wave motion */
+
+/* So setting a delay on the second circle */
+
+.circle:nth-of-type(2){
+    animation-delay: 0.1s;
+}
+
+/* So setting a delay on the third circle */
+
+.circle:nth-of-type(3){
+    animation-delay: 0.2s;
+}
+
+/* Adding animations for the loader */
+
+@keyframes bounce {
+        0%,
+        100%{
+            transform: translateY(0);
+        }
+        50%{
+            transform: translateY(-10px);
+        }
+}
